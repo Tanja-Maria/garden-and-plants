@@ -1,0 +1,8 @@
+<h2> <%= @garden.name %> </h2>
+
+
+<%= image_tag(@garden.banner_url, alt: "Banner", class: "image") %>
+
+<%= link_to "Go back", gardens_path %>
+
+<%= link_to "Delete", garden_path(@garden), method: :delete, data: {confirm: "Are you sure?" } %>
