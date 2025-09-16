@@ -6,3 +6,18 @@
 <%= link_to "Go back", gardens_path %>
 
 <%= link_to "Delete", garden_path(@garden), method: :delete, data: {confirm: "Are you sure?" } %>
+
+<h4>Plants</h4>
+
+<ul>
+  <% @plants.each do |plant| %>
+    <li><%= plant.name %> <%= image_tag(plant.image_url) %><%= link_to "X", plant_path(plant), method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <% end %>
+</ul>
+
+<h4>Add a plant</h4>
+<%= simple_form_for [@garden, @plant] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image_url %>
+  <%= f.submit %>
+<% end %>
